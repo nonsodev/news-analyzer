@@ -1,7 +1,7 @@
 # news_summarizer.py - Core functionality module
 
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import WebBaseLoader
@@ -9,7 +9,10 @@ from langchain_core.output_parsers import StrOutputParser
 from typing import List, Dict, Any, Tuple
 
 # Load environment variables
-load_dotenv()
+# load_dotenv()
+import streamlit as st
+
+API_KEY = st.secrets["OPENAI_API_KEY"]
 
 class NewsSummarizer:
     """Core class for loading and summarizing news articles"""
@@ -18,7 +21,8 @@ class NewsSummarizer:
         """Initialize the news summarizer with specified model parameters"""
         self.llm = ChatOpenAI(
             model=model_name,
-            temperature=temperature
+            temperature=temperature,
+            api_key=API_KEY
         )
     
     def load_articles(self, urls: List[str]) -> Tuple[List[Dict], List[str]]:
