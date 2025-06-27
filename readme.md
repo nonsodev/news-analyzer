@@ -61,7 +61,7 @@ Google AI API Key (Gemini)
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/smart-news-analyzer.git
+git clone https://github.com/nonsodev/news-analyzer.git
 cd smart-news-analyzer
 
 # Install dependencies
